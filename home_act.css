@@ -1,0 +1,117 @@
+header {
+    text-align: center; /* Center-align the content inside the header */
+}
+
+body {
+    font-family: 'Loveness', sans-serif;
+}
+
+.leaves-container {
+    position: fixed; /* Fixed position so leaves fall over the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    pointer-events: none; /* Allow clicks to go through the leaves */
+    z-index: 9999; /* Ensure leaves appear on top of other content */
+}
+
+/* Styling for individual falling leaves */
+.falling-leaf {
+    position: absolute; /* Absolute position within the container */
+    width: 20px; /* Adjust size of the leaf */
+    height: 20px; /* Adjust size of the leaf */
+    background-image: url("assets/game_element/leaf.png"); /* Replace with your leaf image */
+    background-size: contain; /* Ensure the leaf image fits within the leaf element */
+    animation: fall linear infinite; /* Apply the fall animation */
+}
+
+/* Animation for falling leaves */
+@keyframes fall {
+    0% {
+        transform: translateY(-100%); /* Start above the viewport */
+        opacity: 0; /* Start with opacity 0 */
+    }
+    100% {
+        transform: translateY(100vh); /* End below the viewport */
+        opacity: 1; /* Fully visible at the end */
+    } 
+}
+
+.image-container {
+    position: fixed;
+    top: 20%;
+    left: 100%; /* Start position off-screen on the left */
+    animation: moveAcross 5s linear forwards;
+}
+
+@keyframes moveAcross {
+    0% {
+        left: 100%; /* Start position off-screen on the left */
+    }
+    100% {
+        left: -100%; /* End position off-screen on the right */
+    }
+}
+body {
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Ensure it's behind other content */
+}
+
+.background-layer-1 {
+    background-image: url("assets/game_element/background_layer_1.png"); /* Replace with your background image */
+    
+}
+
+.background-layer-2 {
+    background-image: url("assets/game_element/background_layer_2.png"); /* Replace with your background image */
+    z-index: -2; /* Lower z-index for the second layer */
+}
+
+.background-layer-3 {
+    background-image: url("assets/game_element/background_layer_3.png"); /* Replace with your background image */
+    z-index: -3; /* Lower z-index for the third layer */
+}
+.flipped {
+    transform: rotate(-90deg);
+    width: auto; /* Set width to auto */
+    height: auto;
+    margin-left: 90px;
+}
+
+body {
+    font-size: 19px; /* Set the base font size */
+}
+
+
+.flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent; /* Set the initial background color to transparent */
+    animation: flashEffect 1s ease-out; /* Use a CSS animation to create the looped flash effect */
+    animation-iteration-count: 5; /* Set the animation to repeat 3 times */
+}
+
+@keyframes flashEffect {
+    0%, 100% {
+        background-color: black; /* Start and end with the background color set to black */
+        opacity: 1; /* Start and end with full opacity */
+    }
+    50% {
+        background-color: transparent; /* Switch back to transparent halfway through the animation */
+        opacity: 0; /* Reduce opacity while switching back to transparent */
+    }
+}
